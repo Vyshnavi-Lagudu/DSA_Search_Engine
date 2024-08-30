@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzq8d9e25ZwuaNF5efHD_H5-wc2uNoiwKnbfaK2wk&s"
+      type="image/x-icon"
+    />
+    <title>DSA Companion</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      "
+    >
+      <h1 style="font-size: 35px; color: white; margin-bottom: 10px">
+        DSA Companion
+      </h1>
+      <h3
+        style="font-size: 35px; color: rgb(242, 241, 241); margin-bottom: 10px"
+      >
+        Enter your query:
+      </h3>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            margin: 5px;
+            height: 30px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(242, 238, 238, 0.17);
+          "
+        >
+          <input
+            style="
+              flex: 1;
+              border: none;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              padding-right: 5px;
+              padding-left: 7px;
+              margin: 1px;
+            "
+            type="text"
+            name="search"
+            placeholder="Search..."
+          />
+          <button
+            style="border: none; background-color: transparent"
+            type="submit"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzq8d9e25ZwuaNF5efHD_H5-wc2uNoiwKnbfaK2wk&s"
+              alt="Search Icon"
+              style="width: 20px; height: 20px"
+            />
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 35px;
+      "
+    >
+      <span
+        style="
+          margin-bottom: 15px;
+          color: rgb(204, 250, 227);
+          font-size: 22px;
+          font-weight: 500;
+        "
+        >Your best search results are here</span
+      >
+      {% for result in results %}
+      <a
+        href="{{ result['Question Link'] }}"
+        style="margin: 8px 0; color: whitesmoke; font-size: 18px"
+        >{{ result['Question Link'] }}</a
+      >
+      {% endfor %}
+    </div>
+  </body>
+</html>
